@@ -38,4 +38,3 @@ for i in array_m:
         print("no")
     else: print("yes")
 
-##계수 정렬
