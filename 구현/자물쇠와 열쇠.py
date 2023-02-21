@@ -8,5 +8,7 @@
 #       -> true이면 return True
 #       -> false이면 다음 회전
 
+##issue
+# 1. n,m이 길이가 다를 것이라고 생각을 안했음
 
 # https://school.programmers.co.kr/learn/courses/30/lessons/60059
