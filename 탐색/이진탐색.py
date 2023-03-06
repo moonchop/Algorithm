@@ -2,7 +2,6 @@ import sys
 
 
 def binary_search(array, target, start, end):
-    print("@ ",start,end)
     if start > end:
         return None
     mid = (start + end) // 2
