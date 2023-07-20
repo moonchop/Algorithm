@@ -7,6 +7,7 @@ def bfs(graph,start,visited):
   visited[start] = True
   #큐가 빌 때까지 반복
   while queue:
+    
     #큐에서 하나의 원소를 뽑아 출력
     v = queue.popleft()
     print(v,end=' ')
