@@ -1,23 +1,28 @@
 import sys
-from itertools import combinations,permutations
+from itertools import combinations
 
 input = sys.stdin.readline
 
-# N = int(input())
-# arr=[]
-# abilities = []
+N = int(input())
+arr=[]
+abilities = []
+min_val = sys.maxsize
 
-# for _ in range(N):
-#     arr.append(list(map(int,input().split())))
+for _ in range(N):
+    arr.append(list(map(int,input().split())))
     
-# for i in (combinations([x for x in range(N)],2)):
-#     a,b = i[0],i[1]
-#     if a == b:
-#         continue
-#     abilities.append(arr[a][b]+arr[b][a])
+combi = list(combinations([x for x in range(N)],N//2))
+for i in range(len(combi)//2):
+    start,link = 0,0
+    for c in combinations(combi[i],2):
+      start += (arr[c[0]][c[1]] + arr[c[1]][c[0]])
+    for c in combinations(combi[len(combi)-1-i],2):
+      link += (arr[c[0]][c[1]] + arr[c[1]][c[0]])
+    min_val = min(min_val,abs(start-link))
     
-# abilities.sort()
-# mid = len(abilities)//2-1
-# print(abilities)
-# print(min(abs(abilities[mid]-abilities[mid-1]),abs(abilities[mid]-abilities[mid+1])))
+print(min_val)
+
+
+
+
 
