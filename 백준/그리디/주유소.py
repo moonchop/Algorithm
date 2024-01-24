@@ -1,21 +1,23 @@
-import sys
+# import sys
 
-input = sys.stdin.readline
+# input = sys.stdin.readline
 
-N = int(input())
-arr = list(map(int,input().split()))
+# N = int(input())
 
-arr.sort(reverse=True)
+# distance = list(map(int,input().split()))
+# cost = list(map(int,input().split()))
 
-answer = arr[0]
+# i=0
+# j=1
+# answer = 0
 
-for i in range(1,N):
-    answer+=arr[i]/2
-
-
-if int(answer)-answer !=0:
-    print(float(answer))
-else:
-    print(int(answer))
-    
-print("%g"%answer)
+# while i < N-1 or j < N-1:
+#   if cost[i] >= cost[j]:
+#     answer += distance[i]*cost[i]
+#     i+=1
+#     j=i
+#   else:
+#     answer+=cost[i]*distance[j-1]
+#     j+=1
+  
+# print(answer)
