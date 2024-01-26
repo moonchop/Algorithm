@@ -1,23 +1,19 @@
-# import sys
+import sys
 
-# input = sys.stdin.readline
+input = sys.stdin.readline
 
-# N = int(input())
+N = int(input())
 
-# distance = list(map(int,input().split()))
-# cost = list(map(int,input().split()))
+distance = list(map(int,input().split()))
+cost = list(map(int,input().split()))
+temp = sys.maxsize
+answer = 0
 
-# i=0
-# j=1
-# answer = 0
-
-# while i < N-1 or j < N-1:
-#   if cost[i] >= cost[j]:
-#     answer += distance[i]*cost[i]
-#     i+=1
-#     j=i
-#   else:
-#     answer+=cost[i]*distance[j-1]
-#     j+=1
-  
-# print(answer)
+for i in range(N-1):
+    if cost[i] >= cost[i+1] and cost[i] < temp:
+        answer += cost[i]*distance[i]
+    else:
+        temp = min(temp,cost[i])
+        answer += temp*distance[i]
+        
+print(answer)
