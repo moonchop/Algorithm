@@ -21,4 +21,4 @@ while True:
         break
     answer += 1
     
-print(answer)
+print(answer) 
