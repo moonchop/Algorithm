@@ -5,27 +5,40 @@ input = sys.stdin.readline
 N = int(input())
 color_list = list(input().rstrip())
 
-answer = 1
 stack = []
 
-if not 'R' in color_list or not 'B' in color_list:
+def color_check(color_target):
     answer = 1
-
-else:
     for color in color_list:
-        if color=='R':
+        if color==color_target:
             if not stack:
                 answer += 1
-                stack.append('R')
+                stack.append(color_target)
         else:
             stack=[]
+    return answer
 
-if color_list[0] == 'R':
+# if color_list[0]=='B':
+#     for color in color_list:
+#         if color=='R':
+#             if not stack:
+#                 answer += 1
+#                 stack.append('R')
+#         else:
+#             stack=[]
+
+#     print(answer)
     
-    print(answer-1)
+# else:
+#     for color in color_list:
+#         if color=='B':
+#             if not stack:
+#                 answer += 1
+#                 stack.append('B')
+#         else:
+#             stack=[]
 
+if color_list[0]=='B':
+    print(color_check('R'))
 else:
-    print(answer)
-
-
-# RRBRRBBBRR
+    print(color_check('B'))
