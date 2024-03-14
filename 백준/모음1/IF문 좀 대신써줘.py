@@ -2,33 +2,29 @@ import sys
 
 input = sys.stdin.readline
 
-word = list(input().rstrip())
-count_0 = word.count('0') // 2
-count_1 = word.count('1') // 2
+N, M = map(int, input().split())
+name_arr = []
+num_arr = []
+# candi_arr = []
 
-result = ''
-
-
-for i in range(len(word)):
-    if count_1 == 0: break
-    if word[i] == '1':
-        count_1 -= 1
-        word[i]='2'
-
-for i in range(len(word)-1, -1, -1):
-    if count_0 == 0: break
-    if word[i] == '0':
-        count_0 -= 1
-        word[i]='2'
-
-print(''.join(''.join(word).split('2')))
-
-
-# word = word[::-1]       
-# for i in range(len(word)):
-#     if count_0 == 0: break
-#     if word[i] == '0':
-#         count_0 -= 1
-#         word.pop(i)
+def binary_search(target):
+    start = 0
+    end = N-1
     
-# print(''.join(word[::-1]))
+    while start <= end:
+        mid = (start+end)//2
+        if target <= num_arr[mid]:
+            end = mid-1
+        else:
+            start = mid+1
+    return end+1
+            
+
+for _ in range(N):
+    a, b = input().split()
+    name_arr.append(a)
+    num_arr.append(int(b))
+    
+for _ in range(M):
+    n = int(input())
+    print(name_arr[binary_search(n)])
